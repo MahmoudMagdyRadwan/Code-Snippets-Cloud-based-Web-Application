@@ -1,0 +1,72 @@
+<div class="container-fluid addSnippetContainer" ng-init="populateOptions()">
+
+  <div class="row addSnippet1stRow">
+    <div class="col-md-12 col-sm-12" style="padding-left:40px;">
+      <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+          <h2 class="add-header">Add A Snippet</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8 col-sm-8 labels form-group">
+          <label for="problemTitle"><h5>Problem Title:</h5></label>
+          <input type="text" class="form-control input-focus" id="problemTitle" placeholder="Title" required name="title" ng-model="snippet.title"></textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8 col-sm-8 labels form-group">
+          <label for="problemDescription"><h5>Description:</h5></label>
+          <textarea class="form-control addTextarea input-focus" name="descriptionofcode" ng-model="snippet.description" placeholder="Add your describtion here..." rows="5" id="problemDescription" required tabindex="101" data-min-length="">
+          </textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row addSnippet2ndRow">
+    <div class="col-md-12 col-sm-12" style="padding-left:40px;">
+      <div class="row">
+        <div class="col-md-8 col-sm-8 labels form-group">
+          <div class="row" style="margin-bottom:15px;">
+            <div class="col-md-12 col-sm-12">
+              <compile-editor></compile-editor>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="labels">
+          <label for="context"><h5 class="addLabels">Context</h5></label>
+        </div>
+        <div class="col-md-2 col-sm-2 form-group">
+          <select class="form-control" id="context" ng-model="snippet.context" ng-options="context.name for context in options.context" required>
+          </select>
+        </div>
+
+        <div class="labels">
+          <label for="type"><h5 class="addLabels">Type</h5></label>
+        </div>
+        <div class="col-md-2 col-sm-2 form-group">
+            <select class="form-control" id="type" ng-model="snippet.code_type" ng-options="type.name for type in options.code_type" required>
+            </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="labels"><label for="tags"><h5 class="addLabels">Tags</h5></label>
+        </div>
+        <div class="col-md-4 col-sm-4">
+          <input type="text" id="tags" class="form-control input-focus" ng-model="snippet.tags">
+        </div>
+      </div>
+
+      <div class="row" style="margin-bottom:20px; margin-top:40px;">
+        <div class="col-md-2 col-sm-2">
+          <button type="submit" class="btn sub-button" ng-click="postSnippet()">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
